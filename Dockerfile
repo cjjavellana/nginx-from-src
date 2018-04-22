@@ -8,13 +8,8 @@ ADD pcre-8.41.tar.gz /tmp
 ADD zlib-1.2.11.tar.gz /tmp
 ADD epel-release-latest-7.noarch.rpm /app/usr/epel-release/epel-release-latest-7.noarch.rpm
 
-# Compile Openssl & Nginx Separately to speed up
-# build process when needing to change nginx
-
 RUN yum group install -y "Development Tools" && \
-	yum install -y perl 
-
-RUN mkdir -p /app/usr/nginx-1.14.0 && \
+	mkdir -p /app/usr/nginx-1.14.0 && \
 	# Compile PCRE
 	cd /tmp/pcre-8.41 && sh configure && make && make install && \
 	# Compile Zlib
