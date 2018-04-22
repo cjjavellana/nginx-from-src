@@ -54,5 +54,5 @@ RUN yum group install -y "Development Tools" && \
 		--with-openssl=../openssl-1.1.0h && \
 	make && make install
 
-#CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
 
